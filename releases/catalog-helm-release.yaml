@@ -21,7 +21,7 @@ spec:
       volumes: {}
       image:
         repository: docker-release.workshop.stakater.com:443/stakater/catalog
-        tag: v0.0.5
+        tag: v0.0.6
       imagePullSecrets: "docker-registry-nexus-secret"
       probes:
         readinessProbe:
