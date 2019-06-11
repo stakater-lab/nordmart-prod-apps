@@ -4,6 +4,7 @@ NAMESPACE ?= nordmart-prod-apps
 
 install:
 	cd releases
+	kubectl create namespace $(NAMESPACE) || true
 	kubectl apply -f . -n $(NAMESPACE)
 
 install-dry-run:
@@ -13,3 +14,4 @@ install-dry-run:
 delete:
 	cd releases
 	kubectl delete -f . -n $(NAMESPACE)
+
