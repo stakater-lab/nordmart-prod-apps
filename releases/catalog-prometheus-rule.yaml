@@ -6,8 +6,7 @@ metadata:
     role: prometheus-rulefiles
     app: stakater
     kind: apps
-    heritage: Tiller
-    expose: true
+    release: stakater-monitoring-prometheus-operator
   name: prometheus-rules-catalog-prod
   namespace: monitoring
 spec:
