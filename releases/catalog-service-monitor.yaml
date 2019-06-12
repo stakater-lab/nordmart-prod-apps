@@ -7,19 +7,16 @@ items:
   metadata:
     name: stakater-nordmart-catalog-prod-monitor
     labels:
-      k8s-app: stakater-nordmart-catalog
       release: stakater-monitoring-prometheus-operator
-      app: stakater
     namespace: monitoring
   spec:
-    jobLabel: ""
     selector:
       matchLabels:
-        k8sapp: stakater-nordmart-catalog     # All services with this label will be monitored.
+        release: nordmart-prod-catalog     # All services with this label will be monitored.
     namespaceSelector:
       matchNames:
       - nordmart-prod-apps       # The namespace in which the application will be deployed
     endpoints:
       - interval: 10s
         path: /actuator/prometheus     # The endpoint of service from which prometheus will scrape data
-        port: web
+        port: http
