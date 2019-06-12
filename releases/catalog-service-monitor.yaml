@@ -8,6 +8,8 @@ items:
     name: stakater-nordmart-catalog-prod-monitor
     labels:
       k8s-app: stakater-nordmart-catalog
+      release: stakater-monitoring-prometheus-operator
+      app: stakater
     namespace: monitoring
   spec:
     jobLabel:
