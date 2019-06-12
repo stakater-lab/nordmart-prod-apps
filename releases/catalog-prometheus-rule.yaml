@@ -4,6 +4,10 @@ metadata:
   labels:
     prometheus: k8s
     role: prometheus-rulefiles
+    app: stakater
+    kind: apps
+    heritage: Tiller
+    expose: true
   name: prometheus-rules-catalog-prod
   namespace: monitoring
 spec:
