@@ -13,7 +13,7 @@ spec:
   groups:
   - name: application.rules
     rules:
-    - alert: HighCatalogApiUsage
+    - alert: HighCatalogProdApiUsage
       annotations:
         message: 'Api usage is greater than 10.'
       expr: count_requests_total > 10
