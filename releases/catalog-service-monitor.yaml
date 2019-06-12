@@ -12,7 +12,7 @@ items:
       app: stakater
     namespace: monitoring
   spec:
-    jobLabel:
+    jobLabel: ""
     selector:
       matchLabels:
         k8sapp: stakater-nordmart-catalog     # All services with this label will be monitored.
