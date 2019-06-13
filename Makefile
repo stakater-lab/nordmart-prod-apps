@@ -5,6 +5,7 @@ NAMESPACE ?= nordmart-prod-apps
 install:
 	cd releases
 	kubectl create namespace $(NAMESPACE) || true
+	kubectl label namespace $(NAMESPACE) istio-injection=enabled || true
 	kubectl apply -f .
 
 install-dry-run:
