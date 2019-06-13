@@ -20,7 +20,7 @@ spec:
         app: web
       image:
         repository: docker-release.workshop.stakater.com:443/stakater/web
-        tag: v0.0.11
+        tag: v0.0.13
       imagePullSecrets: "docker-registry-nexus-secret"
       probes:
         readinessProbe:
@@ -47,7 +47,7 @@ spec:
         value: "4200"
       # - name: SSO_URL
       #   value: "https://keycloak.global.stakater.com"
-      - name: SECURE_COOLSTORE_GW_ENDPOINT
+      - name: SECURE_GW_ENDPOINT
         value: "https://gateway-prod.workshop.stakater.com"
     service:
       ports:
