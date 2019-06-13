@@ -16,7 +16,7 @@ spec:
     - alert: HighCatalogProdApiUsage
       annotations:
         message: 'Api usage is greater than 10.'
-      expr: count_requests_total > 10
+      expr: count_requests_total{namespace="nordmart-prod-apps"} > 10
       for: 10s
       labels:
         kind: apps
