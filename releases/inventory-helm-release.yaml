@@ -20,7 +20,7 @@ spec:
         app: inventory
       volumes: {}
       image:
-        repository: docker-release.workshop.stakater.com:443/stakater/inventory
+        repository: docker-delivery.workshop.stakater.com:443/stakater/inventory
         tag: v0.0.5
       imagePullSecrets: "docker-registry-nexus-secret"
       probes:

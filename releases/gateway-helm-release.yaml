@@ -19,7 +19,7 @@ spec:
       podLabels:
         app: gateway
       image:
-        repository: docker-release.workshop.stakater.com:443/stakater/gateway
+        repository: docker-delivery.workshop.stakater.com:443/stakater/gateway
         tag: v0.0.5
       imagePullSecrets: "docker-registry-nexus-secret"
       probes:
