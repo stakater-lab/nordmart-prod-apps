@@ -1,8 +1,8 @@
 #!/usr/bin/env groovy
-@Library('github.com/stakater/stakater-pipeline-library@v2.16.11') _
+@Library('github.com/stakater/stakater-pipeline-library@v2.16.14') _
 
 executeMakeTargets {
-    target= "install-dry-run"
+    target= "install"
     notifySlack= true
     pushToS3= false
     image= "stakater/pipeline-tools:v2.0.12"
