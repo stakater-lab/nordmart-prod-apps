@@ -6,7 +6,7 @@ metadata:
     role: prometheus-rulefiles
     app: stakater
     kind: apps
-    release: stakater-monitoring-prometheus-operator
+    release: stakater-monitoring-po
   name: prometheus-rules-catalog-prod
   namespace: monitoring
 spec:
