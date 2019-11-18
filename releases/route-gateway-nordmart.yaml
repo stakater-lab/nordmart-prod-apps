@@ -1,0 +1,110 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: gateway-route
+  namespace: nordmart-prod-apps
+  annotations:
+    "monitor.stakater.com/enabled": "true"   
+spec:
+  host: gateway-prod.cp-stakater.com
+  tls:
+    caCertificate: |-
+      -----BEGIN CERTIFICATE-----
+      MIIEkjCCA3qgAwIBAgIQCgFBQgAAAVOFc2oLheynCDANBgkqhkiG9w0BAQsFADA/
+      MSQwIgYDVQQKExtEaWdpdGFsIFNpZ25hdHVyZSBUcnVzdCBDby4xFzAVBgNVBAMT
+      DkRTVCBSb290IENBIFgzMB4XDTE2MDMxNzE2NDA0NloXDTIxMDMxNzE2NDA0Nlow
+      SjELMAkGA1UEBhMCVVMxFjAUBgNVBAoTDUxldCdzIEVuY3J5cHQxIzAhBgNVBAMT
+      GkxldCdzIEVuY3J5cHQgQXV0aG9yaXR5IFgzMIIBIjANBgkqhkiG9w0BAQEFAAOC
+      AQ8AMIIBCgKCAQEAnNMM8FrlLke3cl03g7NoYzDq1zUmGSXhvb418XCSL7e4S0EF
+      q6meNQhY7LEqxGiHC6PjdeTm86dicbp5gWAf15Gan/PQeGdxyGkOlZHP/uaZ6WA8
+      SMx+yk13EiSdRxta67nsHjcAHJyse6cF6s5K671B5TaYucv9bTyWaN8jKkKQDIZ0
+      Z8h/pZq4UmEUEz9l6YKHy9v6Dlb2honzhT+Xhq+w3Brvaw2VFn3EK6BlspkENnWA
+      a6xK8xuQSXgvopZPKiAlKQTGdMDQMc2PMTiVFrqoM7hD8bEfwzB/onkxEz0tNvjj
+      /PIzark5McWvxI0NHWQWM6r6hCm21AvA2H3DkwIDAQABo4IBfTCCAXkwEgYDVR0T
+      AQH/BAgwBgEB/wIBADAOBgNVHQ8BAf8EBAMCAYYwfwYIKwYBBQUHAQEEczBxMDIG
+      CCsGAQUFBzABhiZodHRwOi8vaXNyZy50cnVzdGlkLm9jc3AuaWRlbnRydXN0LmNv
+      bTA7BggrBgEFBQcwAoYvaHR0cDovL2FwcHMuaWRlbnRydXN0LmNvbS9yb290cy9k
+      c3Ryb290Y2F4My5wN2MwHwYDVR0jBBgwFoAUxKexpHsscfrb4UuQdf/EFWCFiRAw
+      VAYDVR0gBE0wSzAIBgZngQwBAgEwPwYLKwYBBAGC3xMBAQEwMDAuBggrBgEFBQcC
+      ARYiaHR0cDovL2Nwcy5yb290LXgxLmxldHNlbmNyeXB0Lm9yZzA8BgNVHR8ENTAz
+      MDGgL6AthitodHRwOi8vY3JsLmlkZW50cnVzdC5jb20vRFNUUk9PVENBWDNDUkwu
+      Y3JsMB0GA1UdDgQWBBSoSmpjBH3duubRObemRWXv86jsoTANBgkqhkiG9w0BAQsF
+      AAOCAQEA3TPXEfNjWDjdGBX7CVW+dla5cEilaUcne8IkCJLxWh9KEik3JHRRHGJo
+      uM2VcGfl96S8TihRzZvoroed6ti6WqEBmtzw3Wodatg+VyOeph4EYpr/1wXKtx8/
+      wApIvJSwtmVi4MFU5aMqrSDE6ea73Mj2tcMyo5jMd6jmeWUHK8so/joWUoHOUgwu
+      X4Po1QYz+3dszkDqMp4fklxBwXRsW10KXzPMTZ+sOPAveyxindmjkW8lGy+QsRlG
+      PfZ+G6Z6h7mjem0Y+iWlkYcV4PIWL1iwBi8saCbGS5jN2p8M+X+Q7UNKEkROb3N6
+      KOqkqm57TH2H3eDJAkSnh6/DNFu0Qg==
+      -----END CERTIFICATE-----
+    certificate: |-
+      -----BEGIN CERTIFICATE-----
+      MIIFbDCCBFSgAwIBAgISBG2rMwvfP5bUv45N69xSwPqkMA0GCSqGSIb3DQEBCwUA
+      MEoxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MSMwIQYDVQQD
+      ExpMZXQncyBFbmNyeXB0IEF1dGhvcml0eSBYMzAeFw0xOTA5MzAxMTIwMjhaFw0x
+      OTEyMjkxMTIwMjhaMBwxGjAYBgNVBAMMESouY3Atc3Rha2F0ZXIuY29tMIIBIjAN
+      BgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx2nVY7o1BC4oqYpaXi4YOylLhs6t
+      AyzoINhj3bkFs9btQziTKCMJMC1yZJkoLk2mfg/hIQbavCKn0Pis4JiqSU9LgOnE
+      Lbbqa70To0tBug8Ja0s1luj2GVmjIcwCXKfstxw06e1QQomBiqa6+9d7leptfHpi
+      0GtrCiOH8n3uKZHGtscTRQCJI1BnbK7hUcRJVnq+sDR7LnlB/JEG5KNiq10ZZPVZ
+      bHXjEaVZSbHW0sK8LMNI0pscrWxdPcczOcM2FMI/UW/waHD1j7QqRRTr6rFo8QFH
+      k+r2b7cuwfaV3L5r+KL8n4WaKQ7e1U+JF37Gu8WjIIQNAdmXMAoHz/4rJQIDAQAB
+      o4ICeDCCAnQwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggr
+      BgEFBQcDAjAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBTvj6gAOMQnFewiF3F8d/2s
+      s8/TCDAfBgNVHSMEGDAWgBSoSmpjBH3duubRObemRWXv86jsoTBvBggrBgEFBQcB
+      AQRjMGEwLgYIKwYBBQUHMAGGImh0dHA6Ly9vY3NwLmludC14My5sZXRzZW5jcnlw
+      dC5vcmcwLwYIKwYBBQUHMAKGI2h0dHA6Ly9jZXJ0LmludC14My5sZXRzZW5jcnlw
+      dC5vcmcvMC0GA1UdEQQmMCSCESouY3Atc3Rha2F0ZXIuY29tgg9jcC1zdGFrYXRl
+      ci5jb20wTAYDVR0gBEUwQzAIBgZngQwBAgEwNwYLKwYBBAGC3xMBAQEwKDAmBggr
+      BgEFBQcCARYaaHR0cDovL2Nwcy5sZXRzZW5jcnlwdC5vcmcwggEFBgorBgEEAdZ5
+      AgQCBIH2BIHzAPEAdwB0ftqDMa0zEJEhnM4lT0Jwwr/9XkIgCMY3NXnmEHvMVgAA
+      AW2CHWqKAAAEAwBIMEYCIQCg71fEFo/1cdhikg5QNNtXbe+/TEcyFqHDuL2RGmKK
+      owIhANFRQL/exBfiLCVhQWXpJ6HS5mn4iSJeBOLbfmoiEj2DAHYAKTxRllTIOWW6
+      qlD8WAfUt2+/WHopctykwwz05UVH9HgAAAFtgh1qdQAABAMARzBFAiB4tinrUS5p
+      pZJ1NUv71Ww2z67tmby1PuEkgX3r2ijtogIhALN5sY8Vw50gxsM8PpQcIz7Rf811
+      bgyVDtWPjLfdnee5MA0GCSqGSIb3DQEBCwUAA4IBAQAOoBKV0Myv9TtIdmGgiC3D
+      3VMUXbcpmchgFDXCAU+LQRRTKkTtC2BuwWpE8Nmycy5HhSBPXt6tDff7eyMpY/X/
+      tV0srzAgpjA4/BJQBafk6kHhIqNfcYzCqu8T3gwROhgsCC/iHl4sd69Aq2rY7YA8
+      hzzrcq4j14BPM+A1TmywRC+GynR2xojTB2c35hfkMl1Qv15tQdSFjafzihTBCGp1
+      pGYh+bECM/NRA+iSUNtfvPwUPSL5ao2yvJJOoljiuMTlc5AoM+nFFJVVi0YWzsm6
+      m01cQ6pO+KjvemJcyzjtzORxtBagNkNwpjGyaOc0EAaV70wVR2AWjKYhFHfgFbXE
+      -----END CERTIFICATE-----
+    key: |-
+      -----BEGIN RSA PRIVATE KEY-----
+      MIIEpAIBAAKCAQEAx2nVY7o1BC4oqYpaXi4YOylLhs6tAyzoINhj3bkFs9btQziT
+      KCMJMC1yZJkoLk2mfg/hIQbavCKn0Pis4JiqSU9LgOnELbbqa70To0tBug8Ja0s1
+      luj2GVmjIcwCXKfstxw06e1QQomBiqa6+9d7leptfHpi0GtrCiOH8n3uKZHGtscT
+      RQCJI1BnbK7hUcRJVnq+sDR7LnlB/JEG5KNiq10ZZPVZbHXjEaVZSbHW0sK8LMNI
+      0pscrWxdPcczOcM2FMI/UW/waHD1j7QqRRTr6rFo8QFHk+r2b7cuwfaV3L5r+KL8
+      n4WaKQ7e1U+JF37Gu8WjIIQNAdmXMAoHz/4rJQIDAQABAoIBAQC3pI1xtBAS83da
+      +yDRzt1dzl/RnA/U9swnQ2Bk1nmb7vi9iSJsOifCCHhqkGliivwi5/jJ84gI7llh
+      p0F97NoVfULpS17xQpyL76pgHXRAJozkFHUbrxrEqboD697Y+YST9RP9wiDBxeRY
+      jcdxGjakDyoZEpRhoCsJQUN3W+WyvP72eWJCOaRLPyZRnkxLpiRhPKzsc4TGhk54
+      EvrXfwAOpLNrSOq/B7HJwM/5nNDEhCJVOvEvsWHKDX6lf8t8FI5dRok7foV4U2pN
+      81XjjUe7nT56xqbP/X2cS/2LN1+miRcfUEGle0d5Pya9nU/zkghgj7TeD+IEbGc9
+      Sj6tPhnBAoGBAOSrcgdp9iaJp2iXsjB0U/+z6AEZxWoLEhzYgAbJ4z5kXIEHqMde
+      cFx1RElaft++5l6uaZD4zc/3Gi7MoVq8pOaH6K6E09TGWJdPAt6OqHfRAG/iaQfn
+      5U5Eb7l/k4EYVNVKmKuREHV+QqZTAs5hg9eEl4cZ4YP6JsyhQZ3VZ9DJAoGBAN8/
+      PWz9qUiG/9CwKsFmLcUlUlFev2pW/l9RT2HwrsC8bLkKx+IlShNkrOU8eE5ONqYw
+      gs0KEcU6ZEx6ITfVN5SfLazadJ9mgT6Lfb5X6jig9imBRFV2eW4RZfkcH6B6kiGz
+      wI8UMDiTQQTEJZBZn28ZN4C9jFnlSdZm1lf6wPF9AoGAArqA+9Gp3D/cPYVB3Q4m
+      SnDNHeY+0ssbBjkXHf2etongCLIcs3RPButnSzDHPsg6W3rdS5uMaSTbrR9H9Zs2
+      pIGOpzZyiKFtQTDyKdGt9PALf0pGUo/TzqFGbAI3slyl9n2TYMi0V5KQHQf0ip3j
+      QtkULcqDRF3hxKNP8yAuwvECgYEA1dlEQ/UwhZMb1ZILQrtYOLMpiVyTS5ANlszS
+      l+Tv4RwdoZucIRrLPIyBug0UyR3O558sjLCKmTz3+vI6g7swxKM+I4gXkuGkCH+i
+      cgTRDnHRm6yCAsO8Sh1MazXvbdA7zyDa4bPbBTa5X5Fs0junp8qmCiKIIUysUD6u
+      MBS5YhkCgYAqRYwuokGbQLtqrHrKZR4EB8bVf1brnNROSCX2lG3fnrbnqa74PhI1
+      3BjvrvQFbjua24rRVYE1SZRCD3nFeqUFUgudHVwz+q7FcrFpTtbEkgxuLzpiB4r1
+      oUWKdT4T1hFxDtsV6KvQg3Cse9iGpFK5jgtaivVH7319xwszAGZsew==
+      -----END RSA PRIVATE KEY-----
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  to:
+    kind: Service
+    name: gateway
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: cerebro-logging.cp-stakater.com
+      routerName: router
+      wildcardPolicy: None
