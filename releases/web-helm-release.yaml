@@ -19,9 +19,13 @@ spec:
       podLabels:
         app: web
       image:
-        repository: docker-delivery.cp-stakater.com:443/stakater/web
-        tag: v0.0.23
+        repository: docker-delivery.cp-stakater.com:443/stakater-lab/web
+        tag: v0.0.24
       imagePullSecrets: "docker-registry-nexus-secret"
+      fluentdConfigAnnotations:  
+          regex: /^(?<time>\\d+(?:-\\d+){2}\\s+\\d+(?::\\d+){2}\\.\\d+)\\s*(?<level>\\S+) (?<pid>\\d+) --- \\[(?<thread>[\\s\\S]*?)\\] (?<class>\\S+)\\s*:\\s*(?<message>[\\s\\S]*?)(?=\\g<time>|\\Z)/
+          regexFirstLine: /^\\d+(?:-\\d+){2}\\s+\\d+(?::\\d+){2}\\.\\d+/
+          timeFormat: "%Y-%m-%d %H:%M:%S.%L"
       probes:
         readinessProbe:
           failureThreshold: 3
@@ -46,7 +50,7 @@ spec:
       - name: PORT
         value: "4200"
       # - name: SSO_URL
-      #   value: "https://keycloak.global.stakater.com"
+      #   value: "https://keycloak-security.cp-stakater.com"
       - name: SECURE_GW_ENDPOINT
         value: "https://gateway-prod.cp-stakater.com"
     service:
@@ -55,6 +59,8 @@ spec:
         name: web
         protocol: TCP
         targetPort: 4200
+      additionalLabels:
+        expose: "true"
       annotations:
         config.xposer.stakater.com/Domain: cp-stakater.com
         config.xposer.stakater.com/IngressNameTemplate: '{{.Service}}-prod'

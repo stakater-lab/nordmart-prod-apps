@@ -20,8 +20,8 @@ spec:
         app: inventory
       volumes: {}
       image:
-        repository: docker-delivery.workshop.stakater.com:443/stakater/inventory
-        tag: v0.0.5
+        repository: docker-delivery.cp-stakater.com:443/stakater-lab/inventory
+        tag: v0.0.16
       imagePullSecrets: "docker-registry-nexus-secret"
       fluentdConfigAnnotations:  
           regex: /^(?<time>\\d+(?:-\\d+){2}\\s+\\d+(?::\\d+){2}\\.\\d+)\\s*(?<level>\\S+) (?<pid>\\d+) --- \\[(?<thread>[\\s\\S]*?)\\] (?<class>\\S+)\\s*:\\s*(?<message>[\\s\\S]*?)(?=\\g<time>|\\Z)/
@@ -33,7 +33,7 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
-          initialDelaySeconds: 10
+          initialDelaySeconds: 20
           httpGet:
             path: /healthCheck
             port: 8080
@@ -42,13 +42,17 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
-          initialDelaySeconds: 10
+          initialDelaySeconds: 20
           httpGet:
             path: /healthCheck
             port: 8080
     service:
+      ports:
+      - port: 8080
+        name: https
+        targetPort: 8080
       annotations:
-        config.xposer.stakater.com/Domain: workshop.stakater.com
+        config.xposer.stakater.com/Domain: cp-stakater.com
         config.xposer.stakater.com/IngressNameTemplate: '{{.Service}}-prod'
         config.xposer.stakater.com/IngressURLTemplate: '{{.Service}}-prod.{{.Domain}}'
         config.xposer.stakater.com/TLS: 'true'

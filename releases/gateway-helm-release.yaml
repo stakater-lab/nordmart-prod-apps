@@ -19,8 +19,8 @@ spec:
       podLabels:
         app: gateway
       image:
-        repository: docker-delivery.workshop.stakater.com:443/stakater/gateway
-        tag: v0.0.5
+        repository: docker-delivery.cp-stakater.com:443/stakater-lab/gateway
+        tag: v0.0.17
       imagePullSecrets: "docker-registry-nexus-secret"
       fluentdConfigAnnotations:  
           regex: /^(?<time>\\d+(?:-\\d+){2}\\s+\\d+(?::\\d+){2}\\.\\d+)\\s*(?<level>\\S+) (?<pid>\\d+) --- \\[(?<thread>[\\s\\S]*?)\\] (?<class>\\S+)\\s*:\\s*(?<message>[\\s\\S]*?)(?=\\g<time>|\\Z)/
@@ -48,24 +48,34 @@ spec:
       volumes: {}
       env:
       - name: CATALOG_API_HOST
-        value: "catalog.nordmart-prod-apps"
+        value: "catalog.nordmart-prod-apps.svc.cluster.local"
       - name: CATALOG_API_PORT
         value: "8080"
       - name: INVENTORY_API_HOST
-        value: "inventory.nordmart-prod-apps"
+        value: "inventory.nordmart-prod-apps.svc.cluster.local"
       - name: INVENTORY_API_PORT
         value: "8080"
       - name: DISABLE_CART_DISCOVERY
         value: "false"
       - name: CART_API_HOST
-        value: "cart.nordmart-prod-apps"
+        value: "cart.nordmart-prod-apps.svc.cluster.local"
       - name: CART_API_PORT
         value: "8080"
       - name: HTTP_PORT
         value: "8080"
+      - name: REVIEW_API_HOST
+        value: "review.nordmart-prod-apps.svc.cluster.local"
+      - name: REVIEW_API_PORT
+        value: "8080"
     service:
+      ports:
+      - port: 8080
+        name: https
+        targetPort: 8080
+      additionalLabels:
+        expose: "true"
       annotations:
-        config.xposer.stakater.com/Domain: workshop.stakater.com
+        config.xposer.stakater.com/Domain: cp-stakater.com
         config.xposer.stakater.com/IngressNameTemplate: '{{.Service}}-prod'
         config.xposer.stakater.com/IngressURLTemplate: '{{.Service}}-prod.{{.Domain}}'
         config.xposer.stakater.com/TLS: 'true'

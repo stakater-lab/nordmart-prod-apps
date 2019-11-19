@@ -19,8 +19,8 @@ spec:
       podLabels:
         app: cart
       image:
-        repository: docker-delivery.workshop.stakater.com:443/stakater/cart
-        tag: v0.0.8
+        repository: docker-delivery.cp-stakater.com:443/stakater-lab/cart
+        tag: v0.0.26
       volumes: {}
       env:
       - name: CATALOG_ENDPOINT
@@ -36,7 +36,7 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
-          initialDelaySeconds: 10
+          initialDelaySeconds: 15
           httpGet:
             path: /health
             port: 8080
@@ -45,13 +45,17 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
-          initialDelaySeconds: 10
+          initialDelaySeconds: 15
           httpGet:
             path: /health
             port: 8080
     service:
+      ports:
+      - port: 8080
+        name: https
+        targetPort: 8080
       annotations:
-        config.xposer.stakater.com/Domain: workshop.stakater.com
+        config.xposer.stakater.com/Domain: cp-stakater.com
         config.xposer.stakater.com/IngressNameTemplate: '{{.Service}}-prod'
         config.xposer.stakater.com/IngressURLTemplate: '{{.Service}}-prod.{{.Domain}}'
         config.xposer.stakater.com/TLS: 'true'
@@ -66,3 +70,4 @@ spec:
         name: default
     configMap:
       enabled: false
+      
