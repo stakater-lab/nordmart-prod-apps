@@ -20,7 +20,7 @@ spec:
         app: catalog
       volumes: {}
       image:
-        repository: docker-delivery.cp-stakater.com:443/stakater/catalog
+        repository: docker-delivery.cp-stakater.com:443/stakater-lab/catalog
         tag: v0.0.18
       imagePullSecrets: "docker-registry-nexus-secret"
       fluentdConfigAnnotations:  

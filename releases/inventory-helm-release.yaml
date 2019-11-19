@@ -20,7 +20,7 @@ spec:
         app: inventory
       volumes: {}
       image:
-        repository: docker-delivery.cp-stakater.com:443/stakater/inventory
+        repository: docker-delivery.cp-stakater.com:443/stakater-lab/inventory
         tag: v0.0.15
       imagePullSecrets: "docker-registry-nexus-secret"
       fluentdConfigAnnotations:  

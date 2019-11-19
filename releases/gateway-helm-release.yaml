@@ -19,7 +19,7 @@ spec:
       podLabels:
         app: gateway
       image:
-        repository: docker-delivery.cp-stakater.com:443/stakater/gateway
+        repository: docker-delivery.cp-stakater.com:443/stakater-lab/gateway
         tag: v0.0.16
       imagePullSecrets: "docker-registry-nexus-secret"
       fluentdConfigAnnotations:  

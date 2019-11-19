@@ -19,7 +19,7 @@ spec:
       podLabels:
         app: cart
       image:
-        repository: docker-delivery.cp-stakater.com:443/stakater/cart
+        repository: docker-delivery.cp-stakater.com:443/stakater-lab/cart
         tag: v0.0.25
       volumes: {}
       env:

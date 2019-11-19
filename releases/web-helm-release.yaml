@@ -19,7 +19,7 @@ spec:
       podLabels:
         app: web
       image:
-        repository: docker-delivery.cp-stakater.com:443/stakater/web
+        repository: docker-delivery.cp-stakater.com:443/stakater-lab/web
         tag: v0.0.23
       imagePullSecrets: "docker-registry-nexus-secret"
       fluentdConfigAnnotations:  
