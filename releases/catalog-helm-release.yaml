@@ -20,8 +20,8 @@ spec:
         app: catalog
       volumes: {}
       image:
-        repository: docker-delivery.workshop.stakater.com:443/stakater/catalog
-        tag: v0.0.6
+        repository: docker-delivery.cp-stakater.com:443/stakater/catalog
+        tag: v0.0.18
       imagePullSecrets: "docker-registry-nexus-secret"
       fluentdConfigAnnotations:  
           regex: /^(?<time>\\d+(?:-\\d+){2}\\s+\\d+(?::\\d+){2}\\.\\d+)\\s*(?<level>\\S+) (?<pid>\\d+) --- \\[(?<thread>[\\s\\S]*?)\\] (?<class>\\S+)\\s*:\\s*(?<message>[\\s\\S]*?)(?=\\g<time>|\\Z)/
@@ -48,7 +48,7 @@ spec:
             port: 8080
     service:
       annotations:
-        config.xposer.stakater.com/Domain: workshop.stakater.com
+        config.xposer.stakater.com/Domain: cp-stakater.com
         config.xposer.stakater.com/IngressNameTemplate: '{{.Service}}-prod'
         config.xposer.stakater.com/IngressURLTemplate: '{{.Service}}-prod.{{.Domain}}'
         config.xposer.stakater.com/TLS: 'true'

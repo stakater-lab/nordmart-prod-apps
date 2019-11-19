@@ -19,8 +19,8 @@ spec:
       podLabels:
         app: cart
       image:
-        repository: docker-delivery.workshop.stakater.com:443/stakater/cart
-        tag: v0.0.8
+        repository: docker-delivery.cp-stakater.com:443/stakater/cart
+        tag: v0.0.25
       volumes: {}
       env:
       - name: CATALOG_ENDPOINT
@@ -51,7 +51,7 @@ spec:
             port: 8080
     service:
       annotations:
-        config.xposer.stakater.com/Domain: workshop.stakater.com
+        config.xposer.stakater.com/Domain: cp-stakater.com
         config.xposer.stakater.com/IngressNameTemplate: '{{.Service}}-prod'
         config.xposer.stakater.com/IngressURLTemplate: '{{.Service}}-prod.{{.Domain}}'
         config.xposer.stakater.com/TLS: 'true'

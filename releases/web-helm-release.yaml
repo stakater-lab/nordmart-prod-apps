@@ -19,8 +19,8 @@ spec:
       podLabels:
         app: web
       image:
-        repository: docker-delivery.workshop.stakater.com:443/stakater/web
-        tag: v0.0.13
+        repository: docker-delivery.cp-stakater.com:443/stakater/web
+        tag: v0.0.23
       imagePullSecrets: "docker-registry-nexus-secret"
       probes:
         readinessProbe:
@@ -48,7 +48,7 @@ spec:
       # - name: SSO_URL
       #   value: "https://keycloak.global.stakater.com"
       - name: SECURE_GW_ENDPOINT
-        value: "https://gateway-prod.workshop.stakater.com"
+        value: "https://gateway-prod.cp-stakater.com"
     service:
       ports:
       - port: 4200
@@ -56,7 +56,7 @@ spec:
         protocol: TCP
         targetPort: 4200
       annotations:
-        config.xposer.stakater.com/Domain: workshop.stakater.com
+        config.xposer.stakater.com/Domain: cp-stakater.com
         config.xposer.stakater.com/IngressNameTemplate: '{{.Service}}-prod'
         config.xposer.stakater.com/IngressURLTemplate: '{{.Service}}-prod.{{.Domain}}'
         config.xposer.stakater.com/TLS: 'true'
