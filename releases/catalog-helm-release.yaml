@@ -21,7 +21,7 @@ spec:
       volumes: {}
       image:
         repository: docker-delivery.cp-stakater.com:443/stakater-lab/catalog
-        tag: v0.0.18
+        tag: v0.0.19
       imagePullSecrets: "docker-registry-nexus-secret"
       fluentdConfigAnnotations:  
           regex: /^(?<time>\\d+(?:-\\d+){2}\\s+\\d+(?::\\d+){2}\\.\\d+)\\s*(?<level>\\S+) (?<pid>\\d+) --- \\[(?<thread>[\\s\\S]*?)\\] (?<class>\\S+)\\s*:\\s*(?<message>[\\s\\S]*?)(?=\\g<time>|\\Z)/
