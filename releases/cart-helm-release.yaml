@@ -36,7 +36,7 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
-          initialDelaySeconds: 10
+          initialDelaySeconds: 15
           httpGet:
             path: /health
             port: 8080
@@ -45,11 +45,15 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 1
-          initialDelaySeconds: 10
+          initialDelaySeconds: 15
           httpGet:
             path: /health
             port: 8080
     service:
+      ports:
+      - port: 8080
+        name: https
+        targetPort: 8080
       annotations:
         config.xposer.stakater.com/Domain: cp-stakater.com
         config.xposer.stakater.com/IngressNameTemplate: '{{.Service}}-prod'
@@ -66,3 +70,4 @@ spec:
         name: default
     configMap:
       enabled: false
+      

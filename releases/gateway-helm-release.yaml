@@ -64,6 +64,10 @@ spec:
       - name: HTTP_PORT
         value: "8080"
     service:
+      ports:
+      - port: 80
+        name: https
+        targetPort: 8080
       annotations:
         config.xposer.stakater.com/Domain: cp-stakater.com
         config.xposer.stakater.com/IngressNameTemplate: '{{.Service}}-prod'

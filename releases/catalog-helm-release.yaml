@@ -47,6 +47,11 @@ spec:
             path: /actuator/health
             port: 8080
     service:
+      ports:
+      - port: 8080
+        name: web
+        protocol: TCP
+        targetPort: 8080
       annotations:
         config.xposer.stakater.com/Domain: cp-stakater.com
         config.xposer.stakater.com/IngressNameTemplate: '{{.Service}}-prod'
