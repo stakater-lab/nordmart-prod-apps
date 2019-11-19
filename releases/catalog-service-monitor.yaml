@@ -7,7 +7,7 @@ items:
   metadata:
     name: stakater-nordmart-catalog-prod-monitor
     labels:
-      release: stakater-monitoring-prometheus-operator
+      release: stakater-monitoring-po
     namespace: monitoring
   spec:
     selector:

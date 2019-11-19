@@ -1,5 +1,5 @@
 ---
-apiVersion: flux.weave.works/v1beta1
+apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: nordmart-prod-cart
@@ -12,20 +12,24 @@ spec:
   chart:
     repository: https://stakater.github.io/stakater-charts/
     name: application
-    version: 0.0.5
+    version: 0.0.12
   values:
     applicationName: "cart"
     deployment:
       podLabels:
         app: cart
       image:
-        repository: docker-release.workshop.stakater.com:443/stakater/cart
+        repository: docker-delivery.workshop.stakater.com:443/stakater/cart
         tag: v0.0.8
       volumes: {}
       env:
       - name: CATALOG_ENDPOINT
         value: "catalog.nordmart-prod-apps:8080"
       imagePullSecrets: "docker-registry-nexus-secret"
+      fluentdConfigAnnotations:  
+          regex: /^(?<time>\\d+(?:-\\d+){2}\\s+\\d+(?::\\d+){2}\\.\\d+)\\s*(?<level>\\S+) (?<pid>\\d+) --- \\[(?<thread>[\\s\\S]*?)\\] (?<class>\\S+)\\s*:\\s*(?<message>[\\s\\S]*?)(?=\\g<time>|\\Z)/
+          regexFirstLine: /^\\d+(?:-\\d+){2}\\s+\\d+(?::\\d+){2}\\.\\d+/
+          timeFormat: "%Y-%m-%d %H:%M:%S.%L"
       probes:
         readinessProbe:
           failureThreshold: 3
